@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:food_app/services/endpoints.dart';
+import 'package:food_app/services/dio/endpoints.dart';
 
 class DioHelper {
   static late Dio dio;

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:food_app/core/navigate.dart';
 import 'package:food_app/screens/login_screen.dart';
+import 'package:food_app/services/firebase/authentication.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -34,6 +35,6 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   route() {
-    Navigate.navigateWithoutBack(context, LoginScreen());
+    Navigate.navigateWithoutBack(context, const Authentication());
   }
 }

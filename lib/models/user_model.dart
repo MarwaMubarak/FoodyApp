@@ -11,7 +11,7 @@ class UserModel {
   });
   late final int id;
   late final String name;
-  late final String email;
+  late final String? email;
   late final String phone;
   late final String image;
   late final int points;

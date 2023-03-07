@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FoodyApp</string>
+    <string name="facebook_app_id">1401169770701404</string>
+    <string name="fb_login_protocol_scheme">fb83e88fdf4023219eae3b87ad7510e336</string>
+    <string name="facebook_client_token">8dae49cf3d1f1ac422e0995a20662c91</string>
+</resources>

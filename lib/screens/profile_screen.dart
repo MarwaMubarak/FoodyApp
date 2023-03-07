@@ -37,13 +37,13 @@ class ProfileScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                DataComponent(name: 'Username: ', value: cubit.user.name),
-                DataComponent(name: 'Email: ', value: cubit.user.email),
-                DataComponent(name: 'Phone: ', value: cubit.user.phone),
+                DataComponent(name: 'Username: ', value: cubit.userModel.name),
+                DataComponent(name: 'Email: ', value: cubit.userModel.email),
+                DataComponent(name: 'Phone: ', value: cubit.userModel.phone),
                 DataComponent(
-                    name: 'Credit: ', value: cubit.user.credit.toString()),
+                    name: 'Credit: ', value: cubit.userModel.credit.toString()),
                 DataComponent(
-                    name: 'Points: ', value: cubit.user.points.toString()),
+                    name: 'Points: ', value: cubit.userModel.points.toString()),
                 SizedBox(
                   height: 20,
                 ),
@@ -51,18 +51,18 @@ class ProfileScreen extends StatelessWidget {
                   text: 'Logout',
                   width: 200,
                   onPress: () async {
-                    await cubit.logout();
-                    if (cubit.logoutResponseModel.status) {
-                      Navigate.navigateAndRemoveAll(context, LoginScreen());
-                    }
-                    Fluttertoast.showToast(
-                        msg: cubit.logoutResponseModel.message,
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: baseColor,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
+                    await cubit.logout(context);
+                    // if (cubit.logoutResponseModel.status) {
+                    //   Navigate.navigateAndRemoveAll(context, LoginScreen());
+                    // }
+                    // Fluttertoast.showToast(
+                    //     msg: cubit.logoutResponseModel.message,
+                    //     toastLength: Toast.LENGTH_SHORT,
+                    //     gravity: ToastGravity.BOTTOM,
+                    //     timeInSecForIosWeb: 1,
+                    //     backgroundColor: baseColor,
+                    //     textColor: Colors.white,
+                    //     fontSize: 16.0);
                   },
                 ),
               ],

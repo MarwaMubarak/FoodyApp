@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:food_app/bloc/register/register_cubit.dart';
+import 'package:food_app/bloc/user/user_cubit.dart';
 import 'package:food_app/screens/login_screen.dart';
 
 import '../core/colors.dart';
@@ -22,12 +23,14 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
+    // return BlocConsumer<RegisterCubit, RegisterState>(
+    return BlocConsumer<UserCubit, UserState>(
       listener: (context, state) {
         // TODO: implement listener
       },
       builder: (context, state) {
-        var cubit = RegisterCubit();
+        // var cubit = RegisterCubit();
+        var cubit = UserCubit();
         return Scaffold(
           resizeToAvoidBottomInset: false,
           body: Center(
@@ -89,29 +92,29 @@ class RegisterScreen extends StatelessWidget {
                         String confirmPassword = _confirmPasswordController.text;
                         if (_formKey.currentState!.validate()) {
                           if (password == confirmPassword) {
-                           await cubit.register(email, password, name, phone);
-                            if(cubit.responseModel.status){
-                              Navigate.navigateAndRemoveAll(
-                                  context, LoginScreen());
-                            }
-                              Fluttertoast.showToast(
-                                  msg: cubit.responseModel.message,
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.BOTTOM,
-                                  timeInSecForIosWeb: 1,
-                                  backgroundColor: baseColor,
-                                  textColor: Colors.white,
-                                  fontSize: 16.0);
-
-                          } else {
-                            Fluttertoast.showToast(
-                                msg: "Password Doesn't Match",
-                                toastLength: Toast.LENGTH_SHORT,
-                                gravity: ToastGravity.BOTTOM,
-                                timeInSecForIosWeb: 1,
-                                backgroundColor: baseColor,
-                                textColor: Colors.white,
-                                fontSize: 16.0);
+                           await cubit.register(email, password,context);
+                          //   if(cubit.responseModel.status){
+                          //     Navigate.navigateAndRemoveAll(
+                          //         context, LoginScreen());
+                          //   }
+                          //     Fluttertoast.showToast(
+                          //         msg: cubit.responseModel.message,
+                          //         toastLength: Toast.LENGTH_SHORT,
+                          //         gravity: ToastGravity.BOTTOM,
+                          //         timeInSecForIosWeb: 1,
+                          //         backgroundColor: baseColor,
+                          //         textColor: Colors.white,
+                          //         fontSize: 16.0);
+                          //
+                          // } else {
+                          //   Fluttertoast.showToast(
+                          //       msg: "Password Doesn't Match",
+                          //       toastLength: Toast.LENGTH_SHORT,
+                          //       gravity: ToastGravity.BOTTOM,
+                          //       timeInSecForIosWeb: 1,
+                          //       backgroundColor: baseColor,
+                          //       textColor: Colors.white,
+                          //       fontSize: 16.0);
                           }
                         }
                       },
