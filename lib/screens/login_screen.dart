@@ -65,19 +65,7 @@ class LoginScreen extends StatelessWidget {
                         if (_formKey.currentState!.validate()) {
                           String email = _emailController.text;
                           String password = _passwordController.text;
-                          await cubit.login(email, password,context);
-                          // if (cubit.responseModel.status) {
-                          //   Navigate.navigateWithoutBack(
-                          //       context, const HomeScreen());
-                          // }
-                          // Fluttertoast.showToast(
-                          //     msg: cubit.responseModel.message,
-                          //     toastLength: Toast.LENGTH_SHORT,
-                          //     gravity: ToastGravity.BOTTOM,
-                          //     timeInSecForIosWeb: 1,
-                          //     backgroundColor: baseColor,
-                          //     textColor: Colors.white,
-                          //     fontSize: 16.0);
+                          await cubit.login(email, password, context);
                         }
                       },
                       text: 'Login'),
@@ -87,14 +75,13 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-
                       ButtonComponent(
-                        img: "assets/images/google.png",
+                          img: "assets/images/google.png",
                           scale: 40,
                           color: grayColor,
                           width: 100,
                           onPress: () async {
-                              await cubit.signInWithGoogle(context);
+                            await cubit.signInWithGoogle(context);
                           },
                           text: ''),
                       ButtonComponent(
@@ -103,10 +90,9 @@ class LoginScreen extends StatelessWidget {
                           color: grayColor,
                           width: 100,
                           onPress: () async {
-                             await cubit.signInWithFacebook(context);
+                            await cubit.signInWithFacebook(context);
                           },
                           text: ''),
-
                     ],
                   ),
                   Row(
@@ -134,6 +120,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
-
-
